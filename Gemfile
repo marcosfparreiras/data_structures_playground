@@ -1,3 +1,7 @@
 source 'https://rubygems.org'
 
-# Gems here
+group :development, :test do
+  gem 'rubocop', '~> 1.26.1'
+  gem 'pry-byebug', '~> 3.9.0'
+  gem 'rspec', '~> 3.11.0'
+end
