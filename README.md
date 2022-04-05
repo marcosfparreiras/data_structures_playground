@@ -11,3 +11,9 @@ Then, run a container from the image:
 docker-compose run app
 ```
 At this point, you will have access to the shell inside the container, with the code present in the host.
+
+# How to run the tests
+Considering that the image has been built, simply run:
+```
+docker-compose run app bundle exec rspec
+```
