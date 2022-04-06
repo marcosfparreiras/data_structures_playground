@@ -1,6 +1,14 @@
 AllCops:
   Exclude:
     - 'spec/spec_helper.rb'
+  SuggestExtensions: false # recommended to install rubocop-rspec (https://rubygems.org/gems/rubocop-rspec)
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**'
 
 Gemspec/DateAssignment: # new in 1.10
   Enabled: true
