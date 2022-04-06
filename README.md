@@ -17,3 +17,17 @@ Considering that the image has been built, simply run:
 ```
 docker-compose run app bundle exec rspec
 ```
+
+# How to run static code analyzer
+Considering that the image has been built, simply run:
+```
+docker-compose run app bundle exec rubocop
+```
+
+# To do
+Some ideas on what to implement:
+- Linked List
+- Doubly Linked List
+- Stack
+- Queue
+- Binary Search Tree
