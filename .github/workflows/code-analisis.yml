@@ -1,0 +1,19 @@
+name: code-analisis
+on: push
+
+jobs:
+  check_code_and_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Build docker image for project
+        run: docker build --tag "$GITHUB_REF_NAME:$GITHUB_RUN_ID" .
+
+      - name: Run tests
+        run: docker run --rm "$GITHUB_REF_NAME:$GITHUB_RUN_ID" bundle exec rspec
+
+      - name: Run rubocop (static code analyser)
+        run: docker run --rm "$GITHUB_REF_NAME:$GITHUB_RUN_ID" bundle exec rubocop
