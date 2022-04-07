@@ -1,5 +1,7 @@
 name: code-analisis
 on: push
+env:
+  DOCKER_PROJECT_NAME: data_structures_playground
 
 jobs:
   check_code_and_tests:
@@ -9,11 +11,17 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
+      - name: Login to docker registry
+        run: docker login --username ${{ secrets.DOCKER_REGISTRY_USERNAME }} --password ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+
       - name: Build docker image for project
-        run: docker build --tag "$GITHUB_REF_NAME:$GITHUB_RUN_ID" .
+        run: docker build --tag "${{ secrets.DOCKER_REGISTRY_USERNAME }}/$DOCKER_PROJECT_NAME:$GITHUB_REF_NAME-$GITHUB_RUN_ID" .
+
+      - name: Push image to dockerhub
+        run: docker push "${{ secrets.DOCKER_REGISTRY_USERNAME }}/$DOCKER_PROJECT_NAME:$GITHUB_REF_NAME-$GITHUB_RUN_ID"
 
       - name: Run tests
-        run: docker run --rm "$GITHUB_REF_NAME:$GITHUB_RUN_ID" bundle exec rspec
+        run: docker run --rm "${{ secrets.DOCKER_REGISTRY_USERNAME }}/$DOCKER_PROJECT_NAME:$GITHUB_REF_NAME-$GITHUB_RUN_ID" bundle exec rspec
 
       - name: Run rubocop (static code analyser)
-        run: docker run --rm "$GITHUB_REF_NAME:$GITHUB_RUN_ID" bundle exec rubocop
+        run: docker run --rm "${{ secrets.DOCKER_REGISTRY_USERNAME }}/$DOCKER_PROJECT_NAME:$GITHUB_REF_NAME-$GITHUB_RUN_ID" bundle exec rubocop

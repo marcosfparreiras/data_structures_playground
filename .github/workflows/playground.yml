@@ -1,0 +1,13 @@
+name: playground
+on:
+  push:
+    branches:
+      - 'the_branch_to_play_around'
+
+jobs:
+  the_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Just an echo
+        run: echo 'This is a worflow to play around'
