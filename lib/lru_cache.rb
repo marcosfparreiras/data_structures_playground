@@ -4,6 +4,29 @@
 require 'doubly_linked_list'
 
 # Models a Least Recent Used Cache
+# Complexity for the LRU Cache (n being the capacity)
+# put
+#   time complexity: O(1)
+#   space_complexity: O(n)
+#
+# get
+#   time complexity: O(1)
+#   space_complexity: O(n)
+#
+#
+# The implementation strategy:
+# The LRU cache is implemented using a mix of a Hash and a DoublyLinkedList.
+#   The DoublyLinkedList is needed to keep the order (LRU), allowing us to
+#   remove any node with O(1), and prepend with O(1)
+#
+#   The Hash then maps the key to the Node in the DoublyLinkedListdList.
+#   And, with that, reading a key has complexity O(1), and we can access the
+#   node in O(1), we just need to remove/prepend it in the LinkedList when
+#   needed
+#
+#   Another important point is that the Node has to keep both key and value.
+#   This is needed because, when deleting the LRU, we need also to remove the
+#   entry from the Hash, and we need to be able to map the node to the key
 class LRUCache
   attr_reader :capacity, :list, :hash, :size
 
