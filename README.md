@@ -26,8 +26,9 @@ docker-compose run app bundle exec rubocop
 
 # To do
 Some ideas on what to implement:
-- ~~Linked List~~
-- Doubly Linked List
-- ~~Stack~~
-- Queue
+- ~Linked List~
+- ~Doubly Linked List~
+- ~Stack~
+- ~Queue~
 - Binary Search Tree
+- ~LRU Cache~
