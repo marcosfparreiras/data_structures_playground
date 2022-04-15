@@ -30,5 +30,6 @@ Some ideas on what to implement:
 - ~Doubly Linked List~
 - ~Stack~
 - ~Queue~
-- Binary Search Tree
+- ~Binary Search Tree~
 - ~LRU Cache~
+- ~Balanced Backets Checker~
