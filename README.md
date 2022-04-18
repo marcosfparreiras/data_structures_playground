@@ -33,3 +33,4 @@ Some ideas on what to implement:
 - ~Binary Search Tree~
 - ~LRU Cache~
 - ~Balanced Backets Checker~
+- Reorganize files structure isolating the data structures implementation
