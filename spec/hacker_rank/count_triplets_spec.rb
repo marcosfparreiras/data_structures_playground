@@ -50,23 +50,7 @@ describe HackerRank::CountTriplets do
       context 'and all elements are ones (example 2 on hacker rank)' do
         let(:list) { [1] * 100 }
         let(:ratio) { 1 }
-        let(:expected_value) { 161700 }
-
-        it { expect(subject.count).to eq(expected_value) }
-      end
-
-      context 'and all elements are ones (example 2 on hacker rank reduced)' do
-        let(:list) { [1] * 4 }
-        let(:ratio) { 1 }
-        let(:expected_value) { 5 }
-
-        it { expect(subject.count).to eq(expected_value) }
-      end
-
-      context 'and all elements are ones (example 2 on hacker rank reduced)' do
-        let(:list) { [1] * 3 }
-        let(:ratio) { 1 }
-        let(:expected_value) { 1 }
+        let(:expected_value) { 161_700 }
 
         it { expect(subject.count).to eq(expected_value) }
       end
@@ -74,10 +58,10 @@ describe HackerRank::CountTriplets do
 
     context 'when not all elements are part of the same geometric progression' do
       let(:list) { [1, 2, 5, 5, 10, 25, 50, 125] }
-        let(:ratio) { 5 }
-        let(:expected_value) { 5 }
+      let(:ratio) { 5 }
+      let(:expected_value) { 5 }
 
-        it { expect(subject.count).to eq(expected_value) }
+      it { expect(subject.count).to eq(expected_value) }
     end
   end
 end

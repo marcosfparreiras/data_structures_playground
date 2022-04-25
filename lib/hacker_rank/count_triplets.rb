@@ -23,43 +23,35 @@ module HackerRank
       @list.reverse.each do |number|
         next_number_progression_number = number * @ratio
 
+        prepare_hashes(number, next_number_progression_number)
+        update_counter(next_number_progression_number)
+
         update_pair_occurrences(number, next_number_progression_number)
-        update_counter(number, next_number_progression_number)
-        update_occurences(number, next_number_progression_number)
-
-        puts
-        puts '-----------------------------'
-        puts "number: #{number}; next_number: #{next_number_progression_number}"
-        puts 'occurrences:'
-        p @occurrences
-
-        puts 'pair_occurrences:'
-        p @pair_occurrences
-
-        puts "triplets_counter: #{@triplets_counter}"
+        update_occurences(number)
       end
       @triplets_counter
     end
 
     private
 
-    def update_occurences(number, next_number)
+    def prepare_hashes(number, next_number)
       @occurrences[number] ||= 0
-      @occurrences[number] += 1
-
       @occurrences[next_number] ||= 0
+
+      @pair_occurrences[number] ||= 0
+      @pair_occurrences[next_number] ||= 0
+    end
+
+    def update_counter(next_number)
+      @triplets_counter += @pair_occurrences[next_number]
     end
 
     def update_pair_occurrences(number, next_number)
-      @occurrences[next_number] ||= 0
-      @pair_occurrences[next_number] ||= 0
-
-      @pair_occurrences[number] ||= 0
       @pair_occurrences[number] += @occurrences[next_number]
     end
 
-    def update_counter(number, next_number)
-      @triplets_counter += @pair_occurrences[next_number]
+    def update_occurences(number)
+      @occurrences[number] += 1
     end
   end
 end
