@@ -14,32 +14,52 @@ module HackerRank
     def initialize(list, ratio)
       @list = list
       @ratio = ratio
+      @occurrences = {} # holds a counter of occurrences for each number
+      @pair_occurrences = {} # holds a counter of occurrences for the final pair of the triplet
+      @triplets_counter = 0
     end
 
     def count
-      hash = build_ocurrencies_count_hash
-      count_geometric_progression_permutations(hash)
+      @list.reverse.each do |number|
+        next_number_progression_number = number * @ratio
+
+        update_pair_occurrences(number, next_number_progression_number)
+        update_counter(number, next_number_progression_number)
+        update_occurences(number, next_number_progression_number)
+
+        puts
+        puts '-----------------------------'
+        puts "number: #{number}; next_number: #{next_number_progression_number}"
+        puts 'occurrences:'
+        p @occurrences
+
+        puts 'pair_occurrences:'
+        p @pair_occurrences
+
+        puts "triplets_counter: #{@triplets_counter}"
+      end
+      @triplets_counter
     end
 
     private
 
-    def build_ocurrencies_count_hash
-      hash = {}
-      @list.each do |integer|
-        hash[integer] ||= 0
-        hash[integer] = hash[integer] + 1
-      end
-      hash
+    def update_occurences(number, next_number)
+      @occurrences[number] ||= 0
+      @occurrences[number] += 1
+
+      @occurrences[next_number] ||= 0
     end
 
-    def count_geometric_progression_permutations(hash)
-      numbers_order = hash.keys.sort
-      count = 0
-      numbers_order.each do |number|
-        next if hash[number * @ratio].nil? || hash[number * @ratio * @ratio].nil?
-        count += hash[number] * hash[number * @ratio] * hash[number * @ratio * @ratio]
-      end
-      count
+    def update_pair_occurrences(number, next_number)
+      @occurrences[next_number] ||= 0
+      @pair_occurrences[next_number] ||= 0
+
+      @pair_occurrences[number] ||= 0
+      @pair_occurrences[number] += @occurrences[next_number]
+    end
+
+    def update_counter(number, next_number)
+      @triplets_counter += @pair_occurrences[next_number]
     end
   end
 end

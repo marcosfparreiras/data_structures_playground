@@ -42,7 +42,31 @@ describe HackerRank::CountTriplets do
       context 'and elements appear in wrong order' do
         let(:list) { [5, 1, 5, 25, 125] }
         let(:ratio) { 5 }
-        let(:expected_value) { 2 }
+        let(:expected_value) { 3 }
+
+        it { expect(subject.count).to eq(expected_value) }
+      end
+
+      context 'and all elements are ones (example 2 on hacker rank)' do
+        let(:list) { [1] * 100 }
+        let(:ratio) { 1 }
+        let(:expected_value) { 161700 }
+
+        it { expect(subject.count).to eq(expected_value) }
+      end
+
+      context 'and all elements are ones (example 2 on hacker rank reduced)' do
+        let(:list) { [1] * 4 }
+        let(:ratio) { 1 }
+        let(:expected_value) { 5 }
+
+        it { expect(subject.count).to eq(expected_value) }
+      end
+
+      context 'and all elements are ones (example 2 on hacker rank reduced)' do
+        let(:list) { [1] * 3 }
+        let(:ratio) { 1 }
+        let(:expected_value) { 1 }
 
         it { expect(subject.count).to eq(expected_value) }
       end
