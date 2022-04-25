@@ -14,11 +14,54 @@ module HackerRank
     def initialize(list, ratio)
       @list = list
       @ratio = ratio
-      @occurrences = {} # holds a counter of occurrences for each number
-      @pair_occurrences = {} # holds a counter of occurrences for the final pair of the triplet
+      # holds a counter of occurrences for each number
+      @occurrences = {}
+      # holds a counter of occurrences for the final pair of the triplet
+      @pair_occurrences = {}
       @triplets_counter = 0
     end
 
+    # Complexity (n: size of the list)
+    # Runtime: O(n)
+    # Space complexity: O(n)
+    #
+    # How does it work?
+    # The idea is to iterate the list backwards, and for each item, identify how
+    # many occurrences there are for the remaining 2 items in the triplet. In
+    # order to do it, we have to keep track of how many times a number appears
+    # and also how many times the two missing 2 numbers appear (in order, such
+    # that condition triple (i, j, k), being i < j < k the indexes in the list
+    # is satisfied.
+    #
+    #
+    # Example:
+    #   list: [1, 2, 2, 4, 8]
+    #   ratio: 2
+    #
+    # We first get the last item (8), and check how many times the two
+    # missing numbers (16, 32) appear in this order. There are 0 occurencies,
+    # so the counter stays in 0.
+    #
+    # We then get the next number (4). There are no occurrences of (8, 16) up
+    # to this point, so the counter stays in 0.
+    #
+    # We then get the 2. There is one ocurrency of (4, 8), so the counter is
+    # increased by 1
+    #
+    # We then get the other 2. There is one occurency of (4, 8), so the counter
+    # is increased by 1, again.
+    #
+    # Finally, we get the number 1. There are two occurnencies of (2, 4), so
+    # the counter is increased by 2.
+    #
+    # At the end, we have 4 triplets
+    #
+    #
+    # In order to do that, we use two hashes:
+    # - one to keep track of how many times the remaining two numbers appeared
+    #   (pair_occurrences)
+    # - one to keep track of how many times a number appeared
+    #   (occurrences)
     def count
       @list.reverse.each do |number|
         next_number_progression_number = number * @ratio
