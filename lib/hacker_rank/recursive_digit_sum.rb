@@ -9,29 +9,22 @@ module HackerRank
 
     # returns Integer
     def super_digit
-      initial_number = @string_number.to_i * @repetition_times
-      super_digit_recursive(initial_number)
+      number_superdigit = super_digit_recursive(@string_number)
+
+      super_digit_recursive((number_superdigit * @repetition_times).to_s)
     end
 
-    # number: Integer
+    # number: String
     # returns: Integer
     def super_digit_recursive(number)
-      return number if number < 10
+      return number.to_i if number.size == 1
 
-      super_digit_recursive(sum_digits(number))
-    end
-
-    private
-
-    # number: Integer
-    # returns: Integer
-    def sum_digits(number)
       sum = 0
-      while number >= 10 do
-        sum += number % 10
-        number /= 10
+      number.each_char do |char|
+        sum += char.to_i
       end
-      sum += number
+
+      super_digit_recursive(sum.to_s)
     end
   end
 end
