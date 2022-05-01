@@ -1,3 +1,4 @@
+# frozen_string_literal:true
 
 require 'hacker_rank/special_string'
 
@@ -7,22 +8,20 @@ describe HackerRank::SpecialString do
   describe '#count_special_substrings' do
     context 'HackerRank example tests' do
       context 'example 1' do
-        let(:string) { 'mnonopoo'}
+        let(:string) { 'mnonopoo' }
         let(:expected_result) { 12 }
         it { expect(subject.count_special_substrings).to eq(expected_result) }
       end
 
       context 'example 2' do
-        let(:string) { 'abcbaba'}
+        let(:string) { 'abcbaba' }
         let(:expected_result) { 10 }
         it { expect(subject.count_special_substrings).to eq(expected_result) }
       end
     end
 
-
-
     context 'when size 1' do
-      let(:string) { 'a'}
+      let(:string) { 'a' }
       let(:expected_result) { 1 }
       it { expect(subject.count_special_substrings).to eq(expected_result) }
     end
