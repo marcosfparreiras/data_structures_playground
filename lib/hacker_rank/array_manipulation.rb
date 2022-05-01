@@ -24,7 +24,7 @@ module HackerRank
     # be:
     # [0, 1, 0, 0, -1]
     #
-    # That menas that all items after position 2 (included) will have an
+    # That means that all items after position 2 (included) will have an
     # increase of 1. In order to apply the end of the interval, all the elements
     # after the position 4 get a decrese of 1.
     #

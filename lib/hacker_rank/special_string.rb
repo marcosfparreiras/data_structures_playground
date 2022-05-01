@@ -37,6 +37,18 @@ module HackerRank
     #     occurencies of the same char, we sum the size of the smallest set of
     #     the wrapped character
     #
+    # As an example, the string "aaaba" would get to a ordered_ocurrences with:
+    #   [
+    #      CharCount<char:a, char_count, 3>,
+    #      CharCount<char:b, char_count, 1>,
+    #      CharCount<char:a, char_count, 1>
+    #   ]
+    # and we the total number of special substring will be 9, because:
+    #  - 6 for the a's (3 + 2 + 1)
+    #  - 1 for the b
+    #  - 1 for aba
+    #  - 1 for the final a
+    #
     # returns Integer
     def count_special_substrings
       ordered_ocurrences = map_ordered_ocurrences
