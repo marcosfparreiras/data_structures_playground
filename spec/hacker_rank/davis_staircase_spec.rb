@@ -101,7 +101,7 @@ describe HackerRank::StepsCounterBase do
   subject { HackerRank::StepsCounterBase.new(1) }
   describe '#count' do
     it 'raises an exception' do
-      expect { subject.count }.to raise_error
+      expect { subject.count }.to raise_error(StandardError)
     end
   end
 end

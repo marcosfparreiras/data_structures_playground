@@ -10,7 +10,7 @@ module HackerRank
   # pairs of substrings of the string that are anagrams of each other.
   #
   # The link for the problem in HackerRank is the following:
-  # https://www.hackerrank.com/challenges/minimum-swaps-2/problem
+  # https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem
   class SherlockAndAnagrams
     def initialize(string)
       @string = string

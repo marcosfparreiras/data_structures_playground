@@ -7,7 +7,7 @@ module HackerRank
   # common ratio
   #
   # The link for the problem in HackerRank is the following:
-  # https://www.hackerrank.com/challenges/minimum-swaps-2/problem
+  # https://www.hackerrank.com/challenges/count-triplets-1/problem
   class CountTriplets
     # list: Array<Integer>
     # ratio: Integer
