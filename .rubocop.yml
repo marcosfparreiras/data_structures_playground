@@ -10,6 +10,13 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
+# Disable cop that forces to replace comparisons like:
+#   x > 0  by x.positive?
+#   x < 0  by x.negative?
+#   x == 0 by x.zero?
+Style/NumericPredicate:
+  Enabled: false
+
 Gemspec/DateAssignment: # new in 1.10
   Enabled: true
 Gemspec/RequireMFA: # new in 1.23
