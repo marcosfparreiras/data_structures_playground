@@ -3,28 +3,27 @@
 require 'set'
 
 module HackerRank
-  # This classes models the Node used by the NearestClone problem, in which
-  # each node has a value, a color id, and multiple children nodes
-  class Node
-    attr_accessor :value, :color_id, :nodes
-
-    def initialize(value, color_id)
-      @value = value
-      @color_id = color_id
-      @nodes = []
-    end
-
-    def add_node(node)
-      @nodes << node
-    end
-  end
-
   # This class implements the solution to the NearestClone problem from
   # Hacker Rank.
   #
   # The link for the problem in HackerRank is the following:
   # https://www.hackerrank.com/challenges/find-the-nearest-clone/problem
   class NearestClone
+    # This classes models the Node used by the NearestClone problem, in which
+    # each node has a value, a color id, and multiple children nodes
+    class Node
+      attr_accessor :value, :color_id, :nodes
+
+      def initialize(value, color_id)
+        @value = value
+        @color_id = color_id
+        @nodes = []
+      end
+
+      def add_node(node)
+        @nodes << node
+      end
+    end
     NO_PATH_CODE = -1
 
     def initialize(n_nodes, graph_from, graph_to, color_ids)
