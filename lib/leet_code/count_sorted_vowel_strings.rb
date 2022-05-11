@@ -4,7 +4,7 @@ module LeetCode
   # Implements the solution for the problem Count Sorted Vowel Strings
   # from LeetCode
   #
-  # The link for the problem in HackerRank is the following:
+  # The link for the problem in LeetCode is the following:
   # https://leetcode.com/problems/count-sorted-vowel-strings/
   #
   # The link for the submissions can be found at:

@@ -3,7 +3,7 @@
 module LeetCode
   # Implements the solution for the problem CombinationSum3, from LeetCode
   #
-  # The link for the problem in HackerRank is the following:
+  # The link for the problem in LeetCode is the following:
   # https://leetcode.com/problems/combination-sum-iii
   #
   # The link for the submissions can be found at:
