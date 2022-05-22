@@ -26,11 +26,11 @@ docker-compose run app bundle exec rubocop
 
 # To do
 Some ideas on what to implement:
-- ~Linked List~
-- ~Doubly Linked List~
-- ~Stack~
-- ~Queue~
-- ~Binary Search Tree~
-- ~LRU Cache~
-- ~Balanced Backets Checker~
 - Reorganize files structure isolating the data structures implementation
+- Document solutions for:
+  - Coin Change from Leet Code (https://leetcode.com/problems/coin-change/submissions/)
+  - Critical Connections in a Network (https://leetcode.com/problems/critical-connections-in-a-network/)
+  - Longest Increasing Path (https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
+  - Unique Paths II (https://leetcode.com/problems/unique-paths-ii/)
+  - Pow (https://leetcode.com/problems/powx-n/)
+  - Palindromic Substrings (https://leetcode.com/problems/palindromic-substrings/)
